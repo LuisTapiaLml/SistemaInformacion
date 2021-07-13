@@ -1,0 +1,25 @@
+extends layout
+
+block contenido
+    
+    
+    form(action="/crear_curso", method="post" ,id="crearCurso" , enctype='multipart/form-data')  
+        h2 Crear Curso 
+        label
+            span Nombre 
+            input(type="text", name="nombre" , placeholder="Nombre..." , value="")
+
+        label
+            span Descripción 
+            textarea(cols="30", rows="10" , name="descripcion" , placeholder="Descripción..."  )
+
+        label(class="imagen vacio")
+            span Agregar Imagen 
+            input(type="file", name="imagen_curso" , placeholder="Imagen..." , accept="image/*")    
+
+
+        footer 
+            button(type="submit" , class="guardar") Guardar    
+
+block codigos
+    script(src="/js/formulario.js") 

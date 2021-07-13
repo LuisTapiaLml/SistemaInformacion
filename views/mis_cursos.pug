@@ -1,0 +1,37 @@
+extends layout
+
+block contenido
+
+    <h2> mis cursos </h2> 
+
+    <button class="crear_curso info" id="crear_curso"> Crear curso </button> 
+
+    <div  class="cursos_container">
+
+            if (  cursos.length ) 
+
+                each curso in cursos 
+
+                    <a href="/cursos/#{curso.idcurso}"  class="card" >
+                    
+                        <div  class="img_container"> 
+                        <img src="/uploads/imagenes_cursos/#{curso.imagen}"   alt="img curso" />
+                        </div>
+                        <footer> 
+                            <h3 class="nombre_curso" > #{curso.nombre} </h3>
+                            <div class="pre" >
+                                <div class="rating">
+                                    <i class="fa fa-star checked"></i>
+                                    <i class="fa fa-star checked"></i>
+                                    <i class="fa fa-star checked"></i>
+                                    <i class="fa fa-star checked"></i>
+                                    <i class="fa fa-star "></i>
+                                </div>
+                                <span>30 comentarios</span> 
+                            </div>     
+                        </footer>                       
+                    </a>
+    </div>
+block codigos
+    
+    script(src="/js/mis_cursos.js" ,type="module") 

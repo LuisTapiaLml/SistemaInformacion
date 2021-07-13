@@ -1,0 +1,17 @@
+extends layout
+
+block contenido
+    
+    if( error ) 
+
+        .mensaje.mensaje_error_img 
+            img(src="/imgs/404.svg", alt="404 image")
+            a(href="/") Regresar 
+    
+    else 
+
+        span Todo chido
+
+block codigos
+    
+    //- script(src="/js/mis_cursos.js" ,type="module") 

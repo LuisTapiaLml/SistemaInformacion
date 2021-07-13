@@ -1,0 +1,112 @@
+form {
+    label{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+
+        span{
+            font-size: .9em;
+            font-weight: bold;
+            text-align: left;
+            margin-bottom: 5px;
+        }   
+        
+    }
+
+    footer{
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .fila{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax( calc( 50% - 10px ) , 1fr));
+        grid-gap: 5px;
+    }
+}
+
+input,textarea{
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid #d1d1d1;
+    padding: 5px 10px;
+    outline: none;
+}
+
+textarea{
+    resize: none;
+}
+
+label.imagen{
+    // background-color: #fff;
+    position: relative;
+    padding: 0;
+    cursor: pointer;
+
+    &.vacio::after{
+        // margin-top: 10px;
+        content: "Agrega una imagen ";
+        display: block;
+        border: 2px dashed #d1d1d1;
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        font-size: .85em;
+        
+    }
+
+    &:hover{
+        &::after{
+            background-color: #dfdfdf;
+            border: 2px dashed $color_resaltado;
+            color: $color_resaltado;
+        }
+    }
+
+    input{
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        outline: none;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    img{
+        max-width: 350px;
+        margin: 0 auto;
+        height: auto;
+        max-height: 250px;
+        object-fit: cover;
+    }
+    .preview_imagen{
+        display: flex;
+        flex-direction: column;
+        
+        button{
+            margin-top: 10px;
+            width: 100%;
+            z-index: 2;
+        }
+    }
+}
+
+
+.campo_vacio{
+    input,textarea,select{
+        border: 1px solid rgb(179, 49, 49);
+        background-color:#f5e4e4;
+    }
+
+    &.imagen{
+        &.vacio::after{
+            border: 2px dashed red;
+        }
+    }
+    
+}

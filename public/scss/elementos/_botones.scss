@@ -1,0 +1,30 @@
+button{
+
+    padding: 5px 10px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-weight: bold;
+    &.enviar,&.guardar,&.crear{
+        background-color: $color_success;
+        color: #fff;
+    }
+
+    &.danger{
+        background-color: $color_danger;
+        color: rgb(31, 31, 31);
+    }
+
+    &.error{
+        background-color: $color_error;
+        color: #fff;
+    }
+    &.info{
+        background-color: #007BFF;
+        color: #fff;
+    }
+
+    &:disabled{
+        opacity: .7;
+    }
+}

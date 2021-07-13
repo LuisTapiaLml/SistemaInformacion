@@ -1,0 +1,19 @@
+const Sequelize = require('sequelize');
+
+const db = require('../config/db');
+
+
+const UsuariosCursos = db.define('usuarios_cursos',{
+
+    idusuarios_curosos: {
+        type: Sequelize.INTEGER,
+        primaryKey : true,
+        autoIncrement : true 
+    },
+
+    id_usuario :  Sequelize.INTEGER,
+
+    id_curso : Sequelize.INTEGER,
+});
+
+module.exports = UsuariosCursos ;

@@ -1,0 +1,27 @@
+doctype html
+html(lang="en")
+    head
+        include partials/head
+
+    body 
+
+        div.contenedor_nueva_cuenta
+            form( id="crear_cuenta_form" , novalidate)  
+                header 
+                    h2 Iniciar Sesión 
+                
+                .contenido_form
+                    label
+                        span Nickname 
+                        input(type="text", name="nombre" , placeholder="Nombre..." , value="" , required)
+
+                    label
+                        span Contraseña 
+                        input(type="password", name="clace" , placeholder="Contraseña..." , value="" , required)
+
+                footer 
+                    button(type="submit" , class="guardar") Iniciar Sesión
+
+        block codigos
+
+            script(src="/js/crear_cuenta.js" , type="module") 

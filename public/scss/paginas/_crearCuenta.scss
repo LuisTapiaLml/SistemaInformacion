@@ -1,0 +1,26 @@
+.contenedor_nueva_cuenta{
+    width: 100vw;
+    height: 100vh;
+
+    background-color: $color_resaltado;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // .contenido_form{
+
+    // }
+    form{
+        background-color: #F1EFF1;
+        width: 400px;
+        margin: 0 auto;
+        
+        .contenido_form,footer{
+            padding: 15px;
+        }
+
+        header{
+            border-bottom: 1px solid #d1d1d1;
+        }
+    }
+
+}

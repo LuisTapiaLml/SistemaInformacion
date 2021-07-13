@@ -1,0 +1,37 @@
+.mensaje{
+
+    padding: 5px 8px;
+
+    background-color: #dddddd;
+
+    border: 1px solid #cacaca;
+
+    box-shadow: 3px 3px 3px #ccc;
+
+    &.mensaje_error{
+        background-color: rgb(214, 74, 74) ;
+        color: #0a0a0a;
+        border: rgb(231, 51, 51)  ;
+    }
+
+    &.mensaje_error_img{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        background-color: transparent;
+        border: none;
+        justify-content: center;
+        box-shadow: none;
+        margin-top: 100px;
+        flex-direction: column;
+        img{
+            display: block;
+        }
+        a{
+            font-weight: bold;
+            text-decoration: underline;
+            margin-top: 20px;
+            color: $color_resaltado;
+        }
+    }
+}

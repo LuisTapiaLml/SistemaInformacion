@@ -1,0 +1,46 @@
+doctype html
+html(lang="en")
+    head
+        include partials/head
+
+    body 
+
+        div.contenedor_nueva_cuenta
+            form( id="crear_cuenta_form" , novalidate)  
+                header 
+                    h2 Nueva Cuenta 
+                
+                .contenido_form
+                    label
+                        span Nombre 
+                        input(type="text", name="nombre" , placeholder="Nombre..." , value="" , required)
+
+                    .fila 
+                        label
+                            span Primer Apellido 
+                            input(type="text", name="primer_ap" , placeholder="Primer Apellido..." , value="" , required)
+
+                        label
+                            span Segundo Apellido 
+                            input(type="text", name="segundo_ap" , placeholder="Segundo Apellido..." , value="", required)   
+
+                    label
+                        span Nickname 
+                        input(type="text", name="nickname" , placeholder="Nickname..." , value="", required )
+
+                    .fila 
+                        label
+                            span Contraseña
+                            input(type="password", name="clave" , placeholder="Contraseña..." , value="" , required)
+
+                        label
+                            span Confirmacion 
+                            input(type="password", name="clave2" , placeholder="Confirmación Contraseña..." , value="" , required)   
+
+
+                footer 
+                    button(type="submit" , class="danger") Guardar
+
+        block codigos
+
+            script(src="/js/crear_cuenta.js" , type="module") 

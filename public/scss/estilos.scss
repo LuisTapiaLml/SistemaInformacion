@@ -1,0 +1,16 @@
+@import 'variables';
+@import 'reset';
+
+@import 'elementos/botones';
+@import 'elementos/formularios';
+@import 'elementos/modal';
+@import 'elementos/mensajes';
+
+@import 'layout/header';
+@import 'layout/main';
+
+
+@import 'paginas/crearCuenta';
+@import './paginas/misCursos';
+@import './elementos/cardCursos';
+
