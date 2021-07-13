@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Funciones
 
 Crear cuenta
@@ -9,3 +10,6 @@ incribirme curso
 ver inscripciones
 
 comentar curso
+=======
+# SistemaInformacion
+>>>>>>> main
