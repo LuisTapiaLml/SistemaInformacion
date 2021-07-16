@@ -13,24 +13,23 @@ block contenido
                 each curso in cursos 
 
                     <a href="/cursos/#{curso.idcurso}"  class="card" >
-                    
                         <div  class="img_container"> 
-                        <img src="/uploads/imagenes_cursos/#{curso.imagen}"   alt="img curso" />
+                            <img src="/uploads/imagenes_cursos/#{curso.imagen}"   alt="img curso" />
                         </div>
                         <footer> 
                             <h3 class="nombre_curso" > #{curso.nombre} </h3>
                             <div class="pre" >
                                 <div class="rating">
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star checked"></i>
-                                    <i class="fa fa-star "></i>
+                                    span=curso.calificacion.toFixed(1)
                                 </div>
-                                <span>30 comentarios</span> 
+                                <span>#{curso.dataValues.cuenta_comentarios} comentarios</span> 
                             </div>     
                         </footer>                       
                     </a>
+           
+            else
+        
+                .mensaje.mensaje_info Aun no hay ningun curso.
     </div>
 block codigos
     

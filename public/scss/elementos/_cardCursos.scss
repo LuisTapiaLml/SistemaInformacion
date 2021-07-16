@@ -3,7 +3,7 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 5px;
     margin-top: 10px;
-
+    width: 100%;
     button{
         right:  0;
         margin-right: 0;
@@ -81,7 +81,22 @@
         }
       }
 
+    
+
 }
 
-
+.rating{
+  background-image: url('/imgs/estrella.png');
+  background-size: cover;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  >*{
+    color: #000!important;
+    font-weight: bolder;
+    font-size: .8em;
+  }
+}
 

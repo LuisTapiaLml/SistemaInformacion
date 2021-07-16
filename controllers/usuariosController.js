@@ -12,12 +12,25 @@ module.exports.crearUsuario = (req, res) => {
 
 module.exports.iniciarSesion = (req, res) => {
 
+    const {error} = res.locals.mensajes
+
     res.render('iniciar_sesion', {
         titulo: 'Iniciar Sesion',
-        clase: 'iniciar_sesion'
+        clase: 'iniciar_sesion',
+        error 
     });
 
-}
+};
+
+
+module.exports.crearSesion = (req, res) => {
+
+    res.json({
+        body : req.body
+    });
+
+};
+
 
 module.exports.guardarNuevoUsuario = async (req, res) => {
 
@@ -25,21 +38,31 @@ module.exports.guardarNuevoUsuario = async (req, res) => {
 
     try {
 
-        let usuario = await Usuarios.create({ ...valores })
+        await Usuarios.create({ ...valores });
         
-        res.redirect('/iniciar_sesion')
+        res.json({ 
+            estado : true ,
+            data : null 
+        });
 
     } catch (error) {
+        console.log(error);
+        let errores = error.errors.map( error => {
+
+            if (error.type === 'unique violation') {
+                return {"msg":"Nickname ya registrado"}
+            }
+
+            return {
+                msg:error.message
+            }
+        });
 
         res.json({
             estado : false ,
             data :null ,
-            mensaje : error.errors
+            mensajes :errores  
         });
-    
     }
-
-    
-
 
 };

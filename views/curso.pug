@@ -1,17 +1,67 @@
+
+
 extends layout
 
 block contenido
-    
-    if( error ) 
 
-        .mensaje.mensaje_error_img 
-            img(src="/imgs/404.svg", alt="404 image")
-            a(href="/") Regresar 
-    
-    else 
+    header 
 
-        span Todo chido
+        if(usuario.nombre &&  curso.inscrito  && curso.id_usuario !== usuario.idusuario )
+            <div class="mensaje_header"> 
+                span Inscrito
+                button(class="boton crear accion_curso"  , data-id=curso.idcurso , data-accion="comentar" ) Dejar Comentario
+            </div>
+        if(curso.id_usuario === usuario.idusuario)
+            <div class="mensaje_header">
+                
+                button(class="boton error accion_curso"  , data-id=curso.idcurso , data-accion="eliminar" ) Eliminar Curso
+            </div>
+        if(usuario.nombre && !curso.inscrito && curso.id_usuario !== usuario.idusuario )
+            <div class="mensaje_header">
+                
+                button(class="boton danger accion_curso"  , data-id=curso.idcurso , data-accion="inscribirse" ) Inscribirse a curso
+            </div>
+
+        .contenedor_imagen 
+            <img src="/uploads/imagenes_cursos/#{curso.imagen}"   alt="imagen curso" />
+
+        
+        .descripcion_curso
+            .fila 
+                h3.nombre_curso #{curso.nombre}
+            
+            div.descripcion
+                div.calificacion
+                    .rating
+                        span=curso.calificacion.toFixed(1)
+                    span #{curso.comentarios.length} comentarios
+
+                small.inscritos Incritos #{curso.usuarios_cursos.length}
+                p.desc #{curso.descripcion}
+            
+    h3 Comentarios
+    .comentarios_container
+
+        if( !curso.comentarios.length  )
+            .mensaje.mensaje_info Aun no hay ningun comentario.
+
+        for comentario in curso.comentarios
+           
+            <div class="comentario">
+                <div class="persona">
+                    <img src="https://fakeimg.pl/350x350/?text=#{comentario.usuario.nickname}" alt="">    
+                </div>
+                <div class="comment">
+                    <p class="nombre"> #{comentario.usuario.nickname} </p>
+                    .fila
+                        .rating #{comentario.calificacion}
+                        small=moment(comentario.created_at).format("DD/MM/YYYY")
+                    pre.texto #{comentario.comentario}
+                    
+                </div>
+            </div>
 
 block codigos
     
-    //- script(src="/js/mis_cursos.js" ,type="module") 
+    script(src="/js/accion_curso.js" ,type="module") 
+

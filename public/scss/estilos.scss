@@ -13,4 +13,26 @@
 @import 'paginas/crearCuenta';
 @import './paginas/misCursos';
 @import './elementos/cardCursos';
+@import './paginas/curso';
 
+
+.hero {
+    width: 100%;
+    height: 250px;
+    background-size: cover;
+    background-position:center;
+    background-image: url('/imgs/background.jpg');
+    margin-top: calc( #{$altura_header}    ) ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $fuente_bold;
+    font-weight: bolder;
+    color: #fff;
+    position: relative;
+    font-size: 1.3em;
+}
+
+.inicio{
+    padding-top: 0;
+}

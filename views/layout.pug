@@ -10,23 +10,28 @@ html(lang="en")
                 <a href="/" class="link"> Inicio </a>
             </div>
             <div class="opciones" > 
-                <a href="/mis_suscripciones"  class="link"> Mis Suscripciones </a>
-                <a href="/crear_usuario"  class="link"> Crear cuenta </a> 
-                <div class="boton_perfil"> 
-                    <span> Luis Tapia <i class="fas fa-chevron-down icono"></i></span> 
-                    <ul> 
-                        <li> <a href="/perfil" > perfil</a> </li> 
-                        <li> <a href="/mis_cursos" > Mis Cursos</a> </li> 
-                        <li> <a href="/cerrar_sesion" > Cerrar Sesión</a> </li>                    
-                    </ul>
-                </div>  
+                if ( !usuario.nombre )
+                    <a href="/iniciar_sesion"  class="link"> Iniciar Sesion </a> 
+                    <a href="/crear_usuario"  class="link boton crear"> Crear cuenta </a> 
+
+                if ( usuario.nombre )
+                    <a href="/mis_suscripciones"  class="link"> Mis Suscripciones </a>
+                    <div class="boton_perfil"> 
+                        <span> #{usuario.nickname} <i class="fas fa-chevron-down icono"></i></span> 
+                        <ul> 
+                            //- <li> <a href="/perfil" > perfil</a> </li> 
+                            <li> <a href="/mis_cursos" > Mis Cursos</a> </li> 
+                            <li> <a href="/cerrar_sesion" > Cerrar Sesión</a> </li>                    
+                        </ul>
+                    </div> 
             </div>
         </header>
+
+        block hero
 
         <main>
             <div class="#{clase}" >
                 block contenido
             </div>
         </main>
-
         block codigos

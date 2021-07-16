@@ -23,6 +23,7 @@ const enviar_formulario = async (e) => {
     pass = data.formulario.get('clave');
     pass2 = data.formulario.get('clave2');
 
+
     if (pass !== pass2) {
 
         mensaje({ 'mensaje': 'La contraseñas no son iguales', 'titulo': 'error', 'estado': 'error' });
@@ -31,9 +32,27 @@ const enviar_formulario = async (e) => {
 
     }
 
-    let respuesta = await conexion('/crear_usuario','post', data.formulario );
+    if (pass.length < 6  ) {
 
-    console.log(respuesta);
+        mensaje({ 'mensaje': 'La contraseñas debe contener minimo 6 caracteres', 'titulo': 'error', 'estado': 'error' });
+
+        return false;
+
+    }
+
+    try {
+
+        let respuesta = await conexion('/crear_usuario','post', data.formulario );
+
+        if( respuesta.estado ){
+            
+            window.location.href = '/iniciar_sesion?estado=exito'
+
+        }
+
+    } catch (error) {
+        console.log(error);    
+    }
 
 }
 

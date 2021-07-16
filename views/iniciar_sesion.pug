@@ -6,22 +6,29 @@ html(lang="en")
     body 
 
         div.contenedor_nueva_cuenta
-            form( id="crear_cuenta_form" , novalidate)  
+            if( error )    
+
+                .mensaje.mensaje_error
+                    span #{error}
+
+            form( id="iniciar_sesion_form" , novalidate , method="post" , action='/iniciar_sesion')  
                 header 
                     h2 Iniciar Sesión 
                 
                 .contenido_form
                     label
                         span Nickname 
-                        input(type="text", name="nombre" , placeholder="Nombre..." , value="" , required)
+                        input(type="text", name="nickname" , placeholder="Nombre..." , value="" , required)
 
                     label
                         span Contraseña 
-                        input(type="password", name="clace" , placeholder="Contraseña..." , value="" , required)
+                        input(type="password", name="clave" , placeholder="Contraseña..." , value="" , required)
+
+                    a(href="/crear_usuario").link Aun no tienes cuenta? 
 
                 footer 
                     button(type="submit" , class="guardar") Iniciar Sesión
 
         block codigos
 
-            script(src="/js/crear_cuenta.js" , type="module") 
+            script(src="" ) 

@@ -3,3 +3,27 @@ extends layout
 block contenido
 
     h2 mis suscripciones
+
+    .cursos_container
+        if( !mis_suscripciones.length ) 
+
+            .mensaje.mensaje_info Aun no se ha suscrito a ningun curso.
+
+        else 
+
+            for curso in mis_suscripciones
+
+                <a href="/cursos/#{curso.idcurso}"  class="card" >
+                    <div  class="img_container"> 
+                        <img src="/uploads/imagenes_cursos/#{curso.imagen}"   alt="img curso" />
+                    </div>
+                    <footer> 
+                        <h3 class="nombre_curso" > #{curso.nombre} </h3>
+                        <div class="pre" >
+                            <div class="rating">
+                                span=curso.calificacion.toFixed(1)
+                            </div>
+                            <span>#{curso.dataValues.cuenta_comentarios} comentarios</span> 
+                        </div>     
+                    </footer>                       
+                </a>

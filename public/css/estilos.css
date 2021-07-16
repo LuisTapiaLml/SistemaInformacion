@@ -39,30 +39,30 @@ ul, li {
   padding: 0;
 }
 
-button {
+button, .boton {
   padding: 5px 10px;
   border-radius: 3px;
   border: 1px solid transparent;
   cursor: pointer;
   font-weight: bold;
 }
-button.enviar, button.guardar, button.crear {
+button.enviar, button.guardar, button.crear, .boton.enviar, .boton.guardar, .boton.crear {
   background-color: #28A745;
   color: #fff;
 }
-button.danger {
+button.danger, .boton.danger {
   background-color: #FFC107;
   color: #1f1f1f;
 }
-button.error {
+button.error, .boton.error {
   background-color: #DC3545;
   color: #fff;
 }
-button.info {
+button.info, .boton.info {
   background-color: #007BFF;
   color: #fff;
 }
-button:disabled {
+button:disabled, .boton:disabled {
   opacity: 0.7;
 }
 
@@ -181,11 +181,23 @@ label.imagen .preview_imagen button {
   background-color: #dddddd;
   border: 1px solid #cacaca;
   box-shadow: 3px 3px 3px #ccc;
+  font-size: 0.85em;
 }
 .mensaje.mensaje_error {
   background-color: #d64a4a;
-  color: #0a0a0a;
+  color: #f3f3f3;
   border: #e73333;
+}
+.mensaje.mensaje_exito {
+  background-color: #28A745;
+  color: #e7e7e7;
+  border: #28A745;
+}
+.mensaje.mensaje_info {
+  padding: 15px;
+  background-color: #007BFF;
+  color: #fff;
+  width: 100%;
 }
 .mensaje.mensaje_error_img {
   display: flex;
@@ -215,8 +227,9 @@ label.imagen .preview_imagen button {
   align-items: center;
   justify-content: space-between;
   padding: 5px 10px;
-  border-bottom: 1px solid #ccc;
+  top: 0;
   position: fixed;
+  z-index: 10;
   width: 100%;
 }
 .header * {
@@ -232,6 +245,9 @@ label.imagen .preview_imagen button {
 }
 .header .opciones > *, .header .inicio > * {
   margin-left: 20px;
+}
+.header .link {
+  font-size: 0.85em;
 }
 .header .link:hover {
   color: #dbdbdb;
@@ -279,8 +295,8 @@ label.imagen .preview_imagen button {
 
 main {
   min-height: 100vh;
-  width: 100%;
-  max-width: 1300px;
+  width: 90%;
+  max-width: 1400px;
   margin: 0 auto;
 }
 main > div {
@@ -303,6 +319,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 .contenedor_nueva_cuenta form {
   background-color: #F1EFF1;
@@ -314,6 +331,16 @@ h2 {
 }
 .contenedor_nueva_cuenta form header {
   border-bottom: 1px solid #d1d1d1;
+}
+.contenedor_nueva_cuenta .mensaje {
+  box-shadow: 3px 3px 3px #272727;
+  margin-bottom: 30px;
+  width: 400px;
+}
+.contenedor_nueva_cuenta .link {
+  text-decoration: underline;
+  font-size: 0.85em;
+  color: #002394;
 }
 
 .cursos_container {
@@ -343,6 +370,7 @@ h2 {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 5px;
   margin-top: 10px;
+  width: 100%;
 }
 .cursos_container button {
   right: 0;
@@ -409,6 +437,165 @@ h2 {
 .cursos_container .pre span {
   display: block;
   color: #fff;
+}
+
+.rating {
+  background-image: url("/imgs/estrella.png");
+  background-size: cover;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rating > * {
+  color: #000 !important;
+  font-weight: bolder;
+  font-size: 0.8em;
+}
+
+.curso header {
+  display: flex;
+  background-color: #EAF3F8;
+  padding: 15px;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+.curso header .mensaje_header {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  display: flex;
+  align-items: center;
+}
+.curso header .mensaje_header span {
+  font-weight: bolder;
+  margin-right: 15px;
+}
+.curso header .contenedor_imagen {
+  width: 300px;
+  height: 300px;
+  background-color: #bae2f8;
+}
+.curso header .contenedor_imagen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.curso header .nombre_curso {
+  font-size: 26px;
+  text-transform: capitalize;
+  margin-right: 15px;
+}
+.curso header .inscritos {
+  font-weight: bold;
+  margin-top: 10px;
+  display: block;
+}
+.curso header .calificacion {
+  display: flex;
+  align-items: center;
+  font-size: 0.85em;
+}
+.curso header .calificacion .rating {
+  margin-right: 10px;
+}
+.curso header .descripcion_curso {
+  padding: 15px;
+  padding-top: 0;
+}
+.curso header .desc {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 0.9em;
+  color: #585858;
+}
+.curso .fila {
+  display: flex;
+  align-items: center;
+}
+
+.comentarios_container {
+  max-height: 450px;
+  overflow: auto;
+  background-color: #fcfcfc;
+  padding: 10px;
+}
+.comentarios_container h3 {
+  margin: 10px 0;
+  margin-bottom: 30px;
+  margin-right: 15px;
+}
+.comentarios_container .comentario {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid #d1d1d1;
+  padding-bottom: 10px;
+  margin-top: 15px;
+}
+.comentarios_container .comentario .persona {
+  margin-right: 10px;
+}
+.comentarios_container .comentario .persona img {
+  display: block;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+.comentarios_container .comentario .nombre {
+  font-size: 0.85em;
+}
+.comentarios_container .comentario .rating {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  font-size: 0.8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.comentarios_container .comentario .texto {
+  font-size: 0.9em;
+  color: #565656;
+}
+.comentarios_container p {
+  padding: 0;
+  margin: 0;
+}
+
+.modal_comentario {
+  border-radius: 3px;
+}
+.modal_comentario h3 {
+  text-align: center;
+}
+.modal_comentario > * {
+  padding: 15px;
+}
+
+.hero {
+  width: 100%;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  background-image: url("/imgs/background.jpg");
+  margin-top: calc( 60px );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "bold_font", "arial";
+  font-weight: bolder;
+  color: #fff;
+  position: relative;
+  font-size: 1.3em;
+}
+
+.inicio {
+  padding-top: 0;
 }
 
 /*# sourceMappingURL=estilos.css.map */

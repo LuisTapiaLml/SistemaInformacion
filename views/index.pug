@@ -1,10 +1,35 @@
 extends layout
 
+block hero 
+    .hero
+        p Pérez Tapia Jose Luis Enrique
+
+
 block contenido
+    h2 Cursos
+    .cursos_container
 
-    p inicio
+        if ( cursos )
+
+            each curso in cursos
+                <a href="/cursos/#{curso.idcurso}"  class="card" >
+                    <div  class="img_container"> 
+                        <img src="/uploads/imagenes_cursos/#{curso.imagen}"   alt="img curso" />
+                    </div>
+                    <footer> 
+                        <h3 class="nombre_curso" > #{curso.nombre} </h3>
+                        <div class="pre" >
+                            <div class="rating">
+                                span=curso.calificacion.toFixed(1)
+                            </div>
+                            <span>#{curso.dataValues.cuenta_comentarios} comentarios</span> 
+                        </div>     
+                    </footer>                       
+                </a>
+
+        if ( !cursos.length )
+        
+            .mensaje.mensaje_info Aun no hay ningun curso.
 
 
 
-
-    

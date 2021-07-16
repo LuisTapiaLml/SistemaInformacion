@@ -6,7 +6,7 @@ html(lang="en")
     body 
 
         div.contenedor_nueva_cuenta
-            form( id="crear_cuenta_form" , novalidate)  
+            form( id="crear_cuenta_form" , novalidate , method ='post')  
                 header 
                     h2 Nueva Cuenta 
                 
@@ -26,7 +26,7 @@ html(lang="en")
 
                     label
                         span Nickname 
-                        input(type="text", name="nickname" , placeholder="Nickname..." , value="", required )
+                        input(type="text", name="nickname" , placeholder="Nickname..." , value="" )
 
                     .fila 
                         label
@@ -37,7 +37,7 @@ html(lang="en")
                             span Confirmacion 
                             input(type="password", name="clave2" , placeholder="Confirmación Contraseña..." , value="" , required)   
 
-
+                    a(href="/iniciar_sesion").link Ya tienes cuenta?
                 footer 
                     button(type="submit" , class="danger") Guardar
 

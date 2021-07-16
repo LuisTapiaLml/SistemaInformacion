@@ -1,7 +1,5 @@
 const Sequelize = require('sequelize');
-
 const db = require('../config/db');
-
 
 const Comentarios = db.define('comentarios',{
 
@@ -19,6 +17,15 @@ const Comentarios = db.define('comentarios',{
     
     calificacion : Sequelize.TINYINT,
 
+    created_at: {
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
+    }
+
 });
+
+
+
 
 module.exports = Comentarios ;
